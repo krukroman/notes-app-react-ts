@@ -14,14 +14,8 @@ const App = () => {
   const notes = useAppSelector(notesSelectors.getNotes);
   const activeNotes = useAppSelector(notesSelectors.getActiveNotes);
   const archivedNotes = useAppSelector(notesSelectors.getArchivedNotes);
-  const dispatch = useAppDispatch();
-
-  const sortedByDateNotes = [...activeNotes].sort((a, b) =>
-    Date.parse(b.created) > Date.parse(a.created) ? 1 : 0
-  );
-
-  console.log(sortedByDateNotes);
   const summaryData = useMemo(() => getNotesStatistics(notes), [notes]);
+  const dispatch = useAppDispatch();
 
   const handleArchivedNotes = () => setShowArchivedNotes(!showArchivedNotes);
   const onDeleteAll = () => dispatch(notesOperations.deleteAllNotes());
