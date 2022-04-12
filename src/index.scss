@@ -13,3 +13,109 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+  pointer-events: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 15px;
+  max-width: 1230px;
+}
+
+.row {
+  padding-block: 5px;
+  padding-inline: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  background-color: #eee;
+  &:not(:last-of-type) {
+    margin-bottom: 5px;
+  }
+}
+
+.header {
+  @extend .row;
+  margin-bottom: 5px;
+  padding-left: 40px;
+
+  font-weight: bold;
+  color: #eee;
+  background-color: #777;
+}
+
+.cell {
+  padding-inline: 5px;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  &:nth-child(2) {
+    font-weight: bold;
+  }
+}
+
+.icon {
+  @extend .cell;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  width: 40px;
+
+  fill: #eee;
+
+  background-color: #777;
+
+  border-radius: 50%;
+}
+
+.actions {
+  padding-inline: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  width: 110px;
+}
+
+.action {
+  padding: 5px;
+
+  fill: #777;
+
+  background-color: transparent;
+  border: none;
+
+  .header & {
+    fill: #eee;
+  }
+}

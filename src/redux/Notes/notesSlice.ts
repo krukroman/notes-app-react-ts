@@ -11,13 +11,13 @@ const items = createSlice({
   reducers: {},
   extraReducers: {
     [notesOperations.deleteAllNotes.type]: state => {
-      state = [];
+      return (state = []);
     },
     [notesOperations.createNote.type]: (state, { payload }) => {
       state.push(payload);
     },
     [notesOperations.deleteNote.type]: (state, { payload }) => {
-      state = state.filter(note => note.id !== payload);
+      return (state = state.filter(note => note.id !== payload));
     },
     [notesOperations.updateNote.type]: (state, { payload }) => {
       const index = state.findIndex(note => note.id === payload.id);
