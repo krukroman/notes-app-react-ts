@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/notes-app-react-ts/static/css/main.3e409662.css",
+    "main.js": "/notes-app-react-ts/static/js/main.ade8c289.js",
+    "static/media/sprite.svg": "/notes-app-react-ts/static/media/sprite.6df9e7c9a289ce79a0ec44a0fe7fa892.svg",
+    "index.html": "/notes-app-react-ts/index.html",
+    "main.3e409662.css.map": "/notes-app-react-ts/static/css/main.3e409662.css.map",
+    "main.ade8c289.js.map": "/notes-app-react-ts/static/js/main.ade8c289.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e409662.css",
+    "static/js/main.ade8c289.js"
+  ]
+}
