@@ -20,10 +20,7 @@ const NotesView = () => {
   const activeNotes = useAppSelector(notesSelectors.getActiveNotes);
   const archivedNotes = useAppSelector(notesSelectors.getArchivedNotes);
 
-  const handleArchivedNotes = useCallback(
-    () => setShowArchivedNotes(!showArchivedNotes),
-    [showArchivedNotes]
-  );
+  const handleArchivedNotes = useCallback(() => setShowArchivedNotes(!showArchivedNotes), [showArchivedNotes]);
 
   const openModal = () => {
     setSHowModal(true);
@@ -34,12 +31,7 @@ const NotesView = () => {
     setSHowModal(false);
   };
 
-  const enableEditMode = (
-    id: string,
-    name: string,
-    category: string,
-    content: string
-  ) => {
+  const enableEditMode = (id: string, name: string, category: string, content: string) => {
     openModal();
     setEditMode(true);
     setNoteDataToEdit(prev => ({
@@ -53,7 +45,8 @@ const NotesView = () => {
 
   const disableEditMode = () => {
     if (!isEditMode) return;
-    setNoteDataToEdit(prev => initialNoteDataToEdit);
+    setEditMode(false);
+    setNoteDataToEdit(initialNoteDataToEdit);
   };
 
   const visibleNotes = showArchivedNotes ? archivedNotes : activeNotes;
@@ -67,9 +60,7 @@ const NotesView = () => {
         notes={visibleNotes}
         enableEditMode={enableEditMode}
       />
-      {!showArchivedNotes && (
-        <Button type="button" text="Create Note" onClick={openModal} />
-      )}
+      {!showArchivedNotes && <Button type="button" text="Create Note" onClick={openModal} className="btn--toRight" />}
 
       {showModal && (
         <ModalWindow onClose={closeModal}>
