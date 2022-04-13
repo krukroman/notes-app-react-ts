@@ -12,3 +12,13 @@
   background-color: rgba(238, 238, 238, 0.6);
   backdrop-filter: blur(3px);
 }
+
+.modal {
+  margin-top: 10px;
+  padding-block: 10px;
+  padding-inline: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+
+  box-shadow: 2px 2px 4px 0 rgba(88, 88, 88, 0.459);
+}
