@@ -1,5 +1,5 @@
-import SummaryView from './Views/SummaryView';
-import NotesView from './Views/NotesView';
+import SummaryView from './views/SummaryView';
+import NotesView from './views/NotesView';
 
 const App = () => {
   return (
