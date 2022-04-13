@@ -4,11 +4,12 @@ import notesSelectors from '../redux/Notes/notesSelectors';
 import Table from '../components/Table/Table';
 import Button from '../components/Button/Button';
 import ModalWindow from '../components/ModalWindow/ModalWindow';
+import NoteEditor from '../components/NoteEditor/NoteEditor';
 
 const initialNoteDataToEdit = {
   id: '',
   name: '',
-  category: 'default',
+  category: '',
   content: ''
 };
 
@@ -34,7 +35,12 @@ const NotesView = () => {
     setSHowModal(false);
   };
 
-  const enableEditMode = (id: string, name: string, category: string, content: string) => {
+  const enableEditMode = (
+    id: string,
+    name: string,
+    category: string,
+    content: string
+  ) => {
     openEditor();
     setEditMode(true);
     setNoteDataToEdit(prev => ({
@@ -64,12 +70,24 @@ const NotesView = () => {
         enableEditMode={enableEditMode}
       />
       {!showArchivedNotes && (
-        <Button type="button" text="Create Note" onClick={openEditor} className="btn--toRight" />
+        <Button
+          type="button"
+          text="Create Note"
+          onClick={openEditor}
+          className="btn--toRight"
+        />
       )}
 
       {showModal && (
         <ModalWindow onClose={closeEditor}>
-          <p>Modal</p>
+          <NoteEditor
+            isEditMode={isEditMode}
+            closeEditor={closeEditor}
+            noteId={noteDataToEdit.id}
+            noteName={noteDataToEdit.name}
+            noteCategory={noteDataToEdit.category}
+            noteContent={noteDataToEdit.content}
+          />
         </ModalWindow>
       )}
     </div>
