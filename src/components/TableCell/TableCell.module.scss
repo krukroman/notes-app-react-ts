@@ -1,0 +1,9 @@
+.container {
+  padding-inline: 5px;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  &:nth-child(2) {
+    font-weight: bold;
+  }
+}

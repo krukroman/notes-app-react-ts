@@ -1,0 +1,16 @@
+.container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  width: 40px;
+
+  fill: #fff;
+
+  background-color: #555;
+
+  border-radius: 50%;
+}
