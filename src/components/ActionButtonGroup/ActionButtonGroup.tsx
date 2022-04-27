@@ -1,4 +1,3 @@
-import s from './ActionButtonGroup.module.scss';
 import INote from '../../interfaces/Note.interface';
 import sprite from '../../assets/icons/sprite.svg';
 import ActionButton from '../ActionButton/ActionButton';
@@ -18,6 +17,8 @@ interface IProps {
   ) => void;
 }
 
+const containerStyle = 'flex shrink-0 px-1 w-28 items-center justify-end';
+
 const ActionButtonGroup = ({
   header,
   showArchive,
@@ -32,8 +33,9 @@ const ActionButtonGroup = ({
 
   if (header) {
     return (
-      <div className={s.container}>
+      <div className={containerStyle}>
         <ActionButton
+          header
           onClick={handleArchivedNotes}
           pathToIcon={
             showArchive
@@ -42,6 +44,7 @@ const ActionButtonGroup = ({
           }
         />
         <ActionButton
+          header
           onClick={onDeleteAll}
           pathToIcon={`${sprite}#icon-delete`}
         />
@@ -63,7 +66,7 @@ const ActionButtonGroup = ({
     };
 
     return (
-      <div className={s.container}>
+      <div className={containerStyle}>
         <ActionButton onClick={onEditNote} pathToIcon={`${sprite}#icon-edit`} />
         <ActionButton
           onClick={onArchiveNote}

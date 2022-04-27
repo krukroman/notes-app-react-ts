@@ -4,7 +4,7 @@ interface IProps {
 
 const Icon = ({ href }: IProps) => {
   return (
-    <svg width="20" height="20">
+    <svg className="h-5 w-5" width="20" height="20">
       <use href={href}></use>
     </svg>
   );

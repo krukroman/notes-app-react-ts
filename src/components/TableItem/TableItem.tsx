@@ -1,5 +1,3 @@
-import s from './TableItem.module.scss';
-
 import INote from '../../interfaces/Note.interface';
 import ISummary from '../../interfaces/Summary.interface';
 
@@ -36,7 +34,7 @@ const TableItem = ({
 }: IProps) => {
   if (noteHeader) {
     return (
-      <div className={s.header}>
+      <div className="flex items-center pl-10 font-bold text-white bg-zinc-700">
         <NoteHeader />
         <ActionButtonGroup
           header
@@ -49,7 +47,7 @@ const TableItem = ({
 
   if (summaryHeader) {
     return (
-      <div className={s.header}>
+      <div className="flex items-center pl-10 font-bold text-white bg-zinc-700">
         <SummaryHeader />
       </div>
     );
@@ -57,7 +55,7 @@ const TableItem = ({
 
   if (note) {
     return (
-      <li className={s.row}>
+      <li className="flex items-center my-1 p-1 bg-gray-200">
         <CategoryIcon category={note.category} />
         <Note note={note} />
         <ActionButtonGroup note={note} enableEditMode={enableEditMode} />
@@ -67,7 +65,7 @@ const TableItem = ({
 
   if (summary) {
     return (
-      <li className={s.row}>
+      <li className="flex items-center my-1 p-1 bg-gray-200">
         <CategoryIcon category={summary.category} />
         <Summary summary={summary} />
       </li>

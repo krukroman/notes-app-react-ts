@@ -8,7 +8,7 @@ interface IProps {
 const Summary = ({ summary }: IProps) => {
   return (
     <>
-      <TableCell text={summary.category} />
+      <TableCell className="font-bold" text={summary.category} />
       <TableCell text={summary.active} />
       <TableCell text={summary.archived} />
     </>

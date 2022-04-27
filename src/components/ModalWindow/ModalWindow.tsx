@@ -1,4 +1,3 @@
-import s from './ModalWindow.module.scss';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 
@@ -30,8 +29,14 @@ const ModalWindow = ({ children, onClose }: IProps) => {
   return (
     portal &&
     createPortal(
-      <div id="backdrop" className={s.backdrop} onClick={onBackdropClick}>
-        <div className={s.modal}>{children}</div>
+      <div
+        id="backdrop"
+        className="py-1 fixed top-0 left-0 overflow-y-auto grid place-items-center w-full h-full bg-gray-300 bg-opacity-60 backdrop-blur-sm"
+        onClick={onBackdropClick}
+      >
+        <div className="mt-3 py-4 px-5 min-w-[50%] bg-white rounded-md shadow-lg">
+          {children}
+        </div>
       </div>,
       portal
     )

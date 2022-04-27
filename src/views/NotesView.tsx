@@ -61,7 +61,7 @@ const NotesView = () => {
   const visibleNotes = showArchivedNotes ? archivedNotes : activeNotes;
 
   return (
-    <div className="container">
+    <div className="grid gap-10">
       <Table
         noteTable
         showArchived={showArchivedNotes}
@@ -74,7 +74,7 @@ const NotesView = () => {
           type="button"
           text="Create Note"
           onClick={openEditor}
-          className="btn--toRight"
+          className="ml-auto"
         />
       )}
 

@@ -1,4 +1,3 @@
-import s from './Button.module.scss';
 interface IProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
   text: string;
@@ -6,9 +5,16 @@ interface IProps {
   className?: string;
 }
 
+const buttonStyle =
+  'block py-1 px-2 border border-solid border-zinc-800 rounded w-max bg-slate-100';
+
 const Button = ({ type, onClick, text, className }: IProps) => {
   return (
-    <button className={className ? `${s.button} ${className}` : s.button} type={type} onClick={onClick}>
+    <button
+      className={className ? `${buttonStyle} ${className}` : buttonStyle}
+      type={type}
+      onClick={onClick}
+    >
       {text}
     </button>
   );

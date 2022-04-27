@@ -1,15 +1,18 @@
-import s from './ActionButton.module.scss';
-
 import Icon from '../Icon/Icon';
 
 interface IProps {
+  header?: boolean;
   pathToIcon: string;
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-const ActionButton = ({ pathToIcon, onClick }: IProps) => {
+const ActionButton = ({ header, pathToIcon, onClick }: IProps) => {
   return (
-    <button className={s.button} type="button" onClick={onClick}>
+    <button
+      className={`p-1 ${header ? 'fill-white' : 'fill-neutral-600'}`}
+      type="button"
+      onClick={onClick}
+    >
       <Icon href={pathToIcon} />
     </button>
   );

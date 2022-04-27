@@ -1,4 +1,3 @@
-import s from './NoteEditor.module.scss';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
@@ -89,23 +88,25 @@ const NoteEditor = ({
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmit}>
-      <label className={s.label} htmlFor="name">
+    <form className="grid w-full" onSubmit={handleSubmit}>
+      <label className="mb-1" htmlFor="name">
         Name
       </label>
       <input
         id="name"
+        className="py-1 px-2 mb-3 w-full font-sans text-base border"
         name="name"
         type="text"
         onChange={handleChange}
         value={note.name}
         required
       />
-      <label className={s.label} htmlFor="category">
+      <label className="mb-1" htmlFor="category">
         Category
       </label>
       <select
         id="category"
+        className="py-1 px-2 mb-3 w-full font-sans text-base border"
         name="category"
         onChange={handleChange}
         value={note.category ? note.category : 'default'}
@@ -124,17 +125,18 @@ const NoteEditor = ({
             );
           })}
       </select>
-      <label className={s.label} htmlFor="content">
+      <label className="mb-1" htmlFor="content">
         Content
       </label>
       <textarea
         id="content"
+        className="py-1 px-2 mb-3 h-52 w-full font-sans text-base border resize-none"
         name="content"
         onChange={handleChange}
         value={note.content}
         required
       ></textarea>
-      <div className={s.buttonContainer}>
+      <div className="mx-auto flex gap-5">
         <Button type="button" onClick={closeEditor} text="Dismiss" />
         <Button type="submit" text="Save" />
       </div>

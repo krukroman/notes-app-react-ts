@@ -10,7 +10,7 @@ interface IProps {
 const Note = ({ note }: IProps) => {
   return (
     <>
-      <TableCell text={note.name} />
+      <TableCell className="font-bold" text={note.name} />
       <TableCell text={note.category} />
       <TableCell text={transformDate(note.created)} />
       <TableCell text={note.content} />

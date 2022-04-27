@@ -28,7 +28,7 @@ const Table = ({
   enableEditMode
 }: IProps) => {
   return (
-    <div className="table">
+    <div>
       <TableItem
         noteHeader={noteTable}
         summaryHeader={summaryTable}

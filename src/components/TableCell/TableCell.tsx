@@ -1,13 +1,12 @@
-import s from './TableCell.module.scss';
-
 interface IProps {
+  className?: string;
   text: string | number;
 }
 
-const TableCell = ({ text }: IProps) => {
+const TableCell = ({ className, text }: IProps) => {
   return (
-    <div className={s.container}>
-      <p>{text}</p>
+    <div className="px-1 grow basis-full break-all">
+      <p className={className && className}>{text}</p>
     </div>
   );
 };

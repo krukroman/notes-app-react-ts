@@ -7,11 +7,7 @@ import getNotesStatistics from '../utils/getNotesStatistics';
 const SummaryView = () => {
   const notes = useAppSelector(notesSelectors.getNotes);
   const summaryData = useMemo(() => getNotesStatistics(notes), [notes]);
-  return (
-    <div className="container">
-      <Table summaryTable summaryData={summaryData} />
-    </div>
-  );
+  return <Table summaryTable summaryData={summaryData} />;
 };
 
 export default SummaryView;
