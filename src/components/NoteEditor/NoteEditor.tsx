@@ -1,10 +1,9 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
-import CATEGORIES from '../../data/categories';
 import notesOperations from '../../redux/Notes/notesOperations';
 import INote from '../../interfaces/Note.interface';
-import Button from '../Button/Button';
+import EditorForm from '../EditorForm/EditorForm';
 
 interface IProps {
   isEditMode: Boolean;
@@ -88,59 +87,12 @@ const NoteEditor = ({
   };
 
   return (
-    <form className="grid w-full" onSubmit={handleSubmit}>
-      <label className="mb-1" htmlFor="name">
-        Name
-      </label>
-      <input
-        id="name"
-        className="py-1 px-2 mb-3 w-full font-sans text-base border"
-        name="name"
-        type="text"
-        onChange={handleChange}
-        value={note.name}
-        required
-      />
-      <label className="mb-1" htmlFor="category">
-        Category
-      </label>
-      <select
-        id="category"
-        className="py-1 px-2 mb-3 w-full font-sans text-base border"
-        name="category"
-        onChange={handleChange}
-        value={note.category ? note.category : 'default'}
-        required
-      >
-        <option defaultValue={note.category ? note.category : 'default'}>
-          {note.category ? note.category : ' Choose category'}
-        </option>
-        {Object.values(CATEGORIES)
-          .filter(value => value !== note.category)
-          .map(value => {
-            return (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            );
-          })}
-      </select>
-      <label className="mb-1" htmlFor="content">
-        Content
-      </label>
-      <textarea
-        id="content"
-        className="py-1 px-2 mb-3 h-52 w-full font-sans text-base border resize-none"
-        name="content"
-        onChange={handleChange}
-        value={note.content}
-        required
-      ></textarea>
-      <div className="mx-auto flex gap-5">
-        <Button type="button" onClick={closeEditor} text="Dismiss" />
-        <Button type="submit" text="Save" />
-      </div>
-    </form>
+    <EditorForm
+      note={note}
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      onClose={closeEditor}
+    />
   );
 };
 
